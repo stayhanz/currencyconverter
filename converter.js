@@ -4,7 +4,7 @@ function convert() {
     var access_key = 'cur_live_qUyg2JlPWzTX3jy6v5u8ftYY957Dl3UM8c8qJQzs'; // Replace with your actual API key from currencyapi.com
 
     // Endpoint from currencyapi.com
-    var endpoint = `https://api.currencyapi.com/api/v1/rates?base=${currency}&key=${access_key}`;
+    var endpoint = `https://api.currencyapi.com/v3/latest?base=${currency}&key=${access_key}`;
 
     fetch(endpoint)
         .then(response => response.json())
