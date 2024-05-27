@@ -1,7 +1,7 @@
 function convert() {
     var amount = document.getElementById('amount').value;
     var fromCurrency = document.getElementById('currency').value;
-    var access_key = 'YOUR_API_KEY'; // Replace with your actual API key from currencyapi.com
+    var access_key = 'cur_live_qUyg2JlPWzTX3jy6v5u8ftYY957Dl3UM8c8qJQzs'; // Replace with your actual API key from currencyapi.com
 
     // Define the endpoint for conversion
     var endpoint = `https://api.currencyapi.com/v3/convert?apikey=${access_key}&from=${fromCurrency}&to=USD,GTQ,KRW&amount=${amount}`;
