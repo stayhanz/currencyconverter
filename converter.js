@@ -8,8 +8,9 @@ function convertCurrency() {
     var apiKey = 'cur_live_qUyg2JlPWzTX3jy6v5u8ftYY957Dl3UM8c8qJQzs';
 
     // Define the endpoint with the required parameters
-    var endpoint = `https://api.currencyapi.com/v3/latest?apikey=${apiKey}&base=${fromCurrency}&currencies=USD,GTQ,KRW`;
+    var endpoint = `https://api.currencyapi.com/v3/latest?apikey=cur_live_qUyg2JlPWzTX3jy6v5u8ftYY957Dl3UM8c8qJQzs&base=${fromCurrency}&currencies=USD,GTQ,KRW`;
 
+    
     // Make the API request
     fetch(endpoint)
         .then(response => response.json())
