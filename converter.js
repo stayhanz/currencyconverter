@@ -1,15 +1,19 @@
 function convert() {
     var amount = document.getElementById('amount').value;
     var currency = document.getElementById('currency').value;
-    var endpoint = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@1/latest/currencies/${currency}.json`;
+    var access_key = 'cur_live_qUyg2JlPWzTX3jy6v5u8ftYY957Dl3UM8c8qJQzs'; // Replace with your actual API key from currencyapi.com
+
+    // Endpoint from currencyapi.com
+    var endpoint = `https://api.currencyapi.com/api/v1/rates?base=${currency}&key=${access_key}`;
 
     fetch(endpoint)
         .then(response => response.json())
         .then(data => {
-            var rates = data[currency];
-            var resultUSD = (currency === 'usd') ? amount : (amount / rates['usd']).toFixed(2);
-            var resultGTQ = (currency === 'gtq') ? amount : (amount / rates['gtq']).toFixed(2);
-            var resultKRW = (currency === 'krw') ? amount : (amount / rates['krw']).toFixed(2);
+            // Assuming the API returns a 'data' object with currency rates
+            var rates = data.data;
+            var resultUSD = (currency === 'usd') ? amount : (amount * rates['USD']).toFixed(2);
+            var resultGTQ = (currency === 'gtq') ? amount : (amount * rates['GTQ']).toFixed(2);
+            var resultKRW = (currency === 'krw') ? amount : (amount * rates['KRW']).toFixed(2);
 
             document.getElementById('results').innerHTML = `
                 <p>${amount} ${currency.toUpperCase()} is equivalent to:</p>
